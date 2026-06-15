@@ -1,4 +1,4 @@
-package com.dotha.websocket.se2034jv_thanhdhhe194260_carrentingsystem;
+package se2034jv_thanhdhhe194260_carrentingsystem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
