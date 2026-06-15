@@ -9,6 +9,7 @@ import lombok.*;
 import org.springframework.validation.annotation.Validated;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -36,7 +37,7 @@ public class CarRental {
 
     @Column(name = "ReturnDate", nullable = false)
     @NotNull(message = "Return date is required")
-    private LocalDate returnDate;
+    private LocalDateTime returnDate;
 
     @Column(name = "RentPrice", nullable = false)
     @NotNull(message = "Rent price is required")

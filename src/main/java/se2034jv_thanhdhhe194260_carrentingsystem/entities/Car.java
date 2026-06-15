@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -41,9 +42,9 @@ public class Car {
     @NotBlank(message = "Description is required")
     private String description;
 
-    @Column(name = "ImportDate", columnDefinition = "Date", nullable = false)
+    @Column(name = "ImportDate", nullable = false)
     @NotNull(message = "Import date is required")
-    private LocalDate importDate;
+    private LocalDateTime importDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ProducerID", nullable = false)

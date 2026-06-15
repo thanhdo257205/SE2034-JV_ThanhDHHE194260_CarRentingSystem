@@ -6,6 +6,7 @@ import lombok.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Embeddable
 @Getter
@@ -22,5 +23,5 @@ public class CarRentalId implements Serializable {
     private Integer carId;
 
     @Column(name = "PickupDate")
-    private LocalDate pickupDate;
+    private LocalDateTime pickupDate;
 }

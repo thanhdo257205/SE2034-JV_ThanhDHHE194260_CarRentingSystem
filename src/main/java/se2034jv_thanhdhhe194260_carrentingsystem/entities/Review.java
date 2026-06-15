@@ -16,7 +16,7 @@ import lombok.*;
 @Table(name = "Review")
 public class Review {
 
-    @Embedded
+    @EmbeddedId
     private ReviewId id;
 
     @ManyToOne(fetch = FetchType.LAZY)

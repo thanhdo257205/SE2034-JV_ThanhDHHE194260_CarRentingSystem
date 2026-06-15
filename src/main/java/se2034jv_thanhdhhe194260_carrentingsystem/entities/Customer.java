@@ -8,6 +8,7 @@ import jakarta.validation.constraints.Past;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -32,7 +33,7 @@ public class Customer {
     @Column(name = "Birthday", nullable = false)
     @NotNull(message = "Birthday is required")
     @Past(message = "Birthday must be in the past")
-    private LocalDate birthday;
+    private LocalDateTime birthday;
 
     @Column(name = "IdentityCard", nullable = false, unique = true, length = 20)
     @NotBlank(message = "Identity card is required")
@@ -44,7 +45,7 @@ public class Customer {
 
     @Column(name = "LicenceDate", nullable = false)
     @NotNull(message = "Licence date is required")
-    private LocalDate licenceDate;
+    private LocalDateTime licenceDate;
 
     @Column(name = "Email", nullable = false, unique = true, length = 100)
     @NotBlank(message = "Email is required")
