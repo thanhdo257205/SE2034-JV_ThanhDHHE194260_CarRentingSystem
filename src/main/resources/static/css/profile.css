@@ -1,0 +1,79 @@
+/* Custom Styles cho trang Hồ sơ cá nhân */
+
+.profile-wrapper {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- KHUNG AVATAR --- */
+.profile-avatar-box {
+    width: 90px;
+    height: 90px;
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.text-xs {
+    font-size: 0.75rem;
+}
+
+.font-medium {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #4a5568;
+}
+
+/* --- MENU DIỀU HƯỚNG SIDEBAR --- */
+.profile-menu-list .list-group-item {
+    color: #4a5568;
+    background-color: #ffffff;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.profile-menu-list .list-group-item:hover {
+    background-color: #f8f9fa;
+    color: #0d6efd;
+    padding-left: 1.25rem; /* Hiệu ứng đẩy nhẹ khi di chuột */
+}
+
+.profile-menu-list .list-group-item.active {
+    background-color: #0d6efd;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* --- KIỂU Ô NHẬP LIỆU FORM --- */
+.form-control {
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    font-size: 0.875rem;
+    padding: 0.55rem 0.75rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.12);
+}
+
+/* --- NÚT BẤM (BUTTONS) --- */
+.btn-save-profile {
+    border-radius: 6px;
+    background-color: #0d6efd;
+    transition: all 0.2s ease;
+}
+.btn-save-profile:hover {
+    background-color: #0b5ed7;
+    transform: translateY(-1px);
+}
+
+.btn-update-password {
+    border-radius: 6px;
+    background-color: #dc3545;
+    transition: all 0.2s ease;
+}
+.btn-update-password:hover {
+    background-color: #bb2d3b;
+    transform: translateY(-1px);
+}

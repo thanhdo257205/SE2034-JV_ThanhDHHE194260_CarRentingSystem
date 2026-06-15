@@ -1,0 +1,46 @@
+.fu-navbar {
+    background-color: #0f172a !important; /* Màu nền tối sâu sắc sảo */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.fu-navbar .navbar-brand {
+    letter-spacing: 0.5px;
+    font-size: 1.25rem;
+}
+
+.fu-navbar .nav-link {
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.fu-navbar .nav-link:hover {
+    color: #ffc107 !important;
+}
+
+.fu-navbar .dropdown-menu {
+    border: none;
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+
+.fu-navbar .dropdown-item {
+    font-size: 0.9rem;
+    padding: 8px 20px;
+    transition: all 0.2s ease;
+}
+
+.fu-navbar .dropdown-item:hover {
+    background-color: #f1f5f9;
+    color: #0284c7;
+    padding-left: 24px;
+}
+
+.fu-navbar .auth-btn {
+    font-size: 0.85rem;
+    transition: transform 0.2s ease;
+}
+
+.fu-navbar .auth-btn:hover {
+    transform: translateY(-1px);
+}

@@ -1,0 +1,59 @@
+/* Custom CSS chuyên biệt dành riêng cho giao diện quản lý giao dịch thuê xe */
+
+.rental-management-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- BANNER KHU VỰC BẢNG HIỂN THỊ DỮ LIỆU --- */
+.rental-data-table thead th {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 12px 12px;
+    background-color: #f8f9fa;
+    color: #475569;
+}
+
+.rental-data-table tbody td {
+    padding: 14px 12px;
+    vertical-align: middle;
+}
+
+/* Định cấu trúc tỷ lệ kích thước chữ viết */
+.text-xxs { font-size: 0.68rem; }
+.text-xs { font-size: 0.75rem; }
+.text-sm { font-size: 0.875rem; }
+.font-medium { font-weight: 600; font-size: 0.85rem; color: #334155; }
+.fw-extrabold { font-weight: 800; }
+
+/* Nút tác vụ mini điều phối */
+.btn-xs {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    border-radius: 4px;
+}
+
+/* --- ĐỊNH DẠNG COMPONENT Ô NHẬP LIỆU FORM TRONG MODAL --- */
+.form-control, .form-select {
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.12);
+}
+
+/* Kiểu dáng thanh phân trang dưới bảng */
+.pagination .page-item .page-link {
+    color: #4a5568;
+    border: 1px solid #e2e8f0;
+    margin: 0 2px;
+    border-radius: 4px;
+}
+.pagination .page-item.active .page-link {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: #ffffff;
+}

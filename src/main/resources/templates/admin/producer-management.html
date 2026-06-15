@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/producer-management.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="card border-0 shadow-sm p-4 bg-white producer-management-container">
+
+    <div class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-4 flex-wrap gap-2">
+        <div>
+            <h4 class="fw-bold text-dark mb-1">
+                <i class="fa-solid fa-industry text-primary me-2"></i> Quản Lý Nhà Sản Xuất
+            </h4>
+            <p class="text-muted small mb-0">Hệ thống quản lý thông tin các hãng xe đối tác thuộc bảng dữ liệu `CarProducer`.</p>
+        </div>
+        <button class="btn btn-primary btn-sm fw-bold px-3 py-2 shadow-sm" data-bs-toggle="modal" data-bs-target="#addProducerModal">
+            <i class="fa-solid fa-plus me-1"></i> Thêm nhà sản xuất mới
+        </button>
+    </div>
+
+    <div class="row g-3 mb-4 align-items-center bg-light p-3 rounded-3 mx-0 border">
+        <div class="col-md-6">
+            <div class="input-group input-group-sm">
+                <span class="input-group-text bg-white border-end-0 text-muted"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <input type="text" class="form-control border-start-0" placeholder="Tìm kiếm theo tên nhà sản xuất hoặc quốc gia...">
+            </div>
+        </div>
+        <div class="col-sm-8 col-md-4">
+            <select class="form-select form-select-sm">
+                <option value="">-- Tất cả quốc gia --</option>
+                <option value="Vietnam">Việt Nam (Vietnam)</option>
+                <option value="Japan">Nhật Bản (Japan)</option>
+                <option value="USA">Mỹ (USA)</option>
+                <option value="Germany">Đức (Germany)</option>
+            </select>
+        </div>
+        <div class="col-sm-4 col-md-2 text-md-end">
+            <button class="btn btn-outline-secondary btn-sm w-100 fw-semibold">
+                <i class="fa-solid fa-filter me-1"></i> Tìm kiếm
+            </button>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover align-middle producer-data-table border-0 mb-0">
+            <thead class="table-light border-bottom">
+            <tr class="text-xs text-uppercase text-secondary">
+                <th class="border-0 px-3" style="width: 15%;">Mã hãng (ID)</th>
+                <th class="border-0" style="width: 30%;">Tên nhà sản xuất (`ProducerName`)</th>
+                <th class="border-0" style="width: 30%;">Địa chỉ (`Address`)</th>
+                <th class="border-0 text-center" style="width: 13%;">Quốc gia (`Country`)</th>
+                <th class="border-0 text-center" style="width: 12%;">Thao tác</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="fw-bold text-secondary px-3">#PRD-1</td>
+                <td class="fw-bold text-dark text-sm">VinFast</td>
+                <td class="text-muted text-sm">Khu kinh tế Đình Vũ - Cát Hải, Hải Phòng</td>
+                <td class="text-center">
+                        <span class="badge bg-primary-subtle text-primary border border-primary-subtle text-xs px-2.5 py-1">
+                            Vietnam
+                        </span>
+                </td>
+                <td class="text-center">
+                    <div class="d-flex justify-content-center gap-1">
+                        <button class="btn btn-outline-primary btn-xs" title="Chỉnh sửa" data-bs-toggle="modal" data-bs-target="#editProducerModal">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </button>
+                        <button class="btn btn-outline-danger btn-xs" title="Xóa hãng" onclick="return confirm('Bạn có chắc chắn muốn xóa nhà sản xuất này?')">
+                            <i class="fa-regular fa-trash-can"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="fw-bold text-secondary px-3">#PRD-2</td>
+                <td class="fw-bold text-dark text-sm">Toyota Motor Corporation</td>
+                <td class="text-muted text-sm">1 Toyota-cho, Toyota City, Aichi Prefecture</td>
+                <td class="text-center">
+                        <span class="badge bg-secondary-subtle text-dark border border-secondary-subtle text-xs px-2.5 py-1">
+                            Japan
+                        </span>
+                </td>
+                <td class="text-center">
+                    <div class="d-flex justify-content-center gap-1">
+                        <button class="btn btn-outline-primary btn-xs" title="Chỉnh sửa" data-bs-toggle="modal" data-bs-target="#editProducerModal">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </button>
+                        <button class="btn btn-outline-danger btn-xs" title="Xóa hãng" onclick="return confirm('Bạn có chắc chắn muốn xóa nhà sản xuất này?')">
+                            <i class="fa-regular fa-trash-can"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <nav class="mt-4" aria-label="Producer table navigation">
+        <ul class="pagination pagination-sm justify-content-end mb-0">
+            <li class="page-item disabled"><a class="page-link" href="#">Trước</a></li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">Sau</a></li>
+        </ul>
+    </nav>
+</div>
+
+
+<div class="modal fade" id="addProducerModal" tabindex="-1" aria-labelledby="addProducerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow">
+            <div class="modal-header bg-light">
+                <h5 class="modal-title fw-bold text-dark" id="addProducerModalLabel">Thêm Nhà Sản Xuất Mới</h5>
+                <button type="button" class="btn-close" data-bs-shadow="none" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="#" method="POST">
+                <div class="modal-body p-4">
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <label class="form-label font-medium">Tên nhà sản xuất (`ProducerName`)*</label>
+                            <input type="text" class="form-control" placeholder="Ví dụ: VinFast, Toyota, Honda..." required>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label font-medium">Quốc gia (`Country`)*</label>
+                            <input type="text" class="form-control" placeholder="Ví dụ: Vietnam, Japan, USA..." required>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label font-medium">Địa chỉ trụ sở (`Address`)*</label>
+                            <textarea class="form-control" rows="3" placeholder="Nhập địa chỉ chi tiết văn phòng/nhà máy..." required></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer bg-light border-top-0">
+                    <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Hủy bỏ</button>
+                    <button type="submit" class="btn btn-primary btn-sm fw-bold px-3">Xác nhận tạo</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

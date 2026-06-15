@@ -1,0 +1,43 @@
+/* Tổng quan cấu trúc Layout Dashboard */
+.admin-dashboard-wrapper {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+/* --- ĐỊNH HÌNH THANH TASKBAR BÊN TRÁI (SIDEBAR) --- */
+.admin-taskbar {
+    background-color: #0f172a !important; /* Màu nền xanh mực tối sang trọng */
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.admin-brand {
+    letter-spacing: 0.05em;
+}
+
+/* Kiểu dáng danh sách menu điều hướng */
+.admin-menu-list .nav-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Trạng thái khi di chuột qua menu */
+.admin-menu-list .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffc107 !important; /* Điểm nhấn chữ màu vàng */
+    padding-left: 1.25rem;
+}
+
+/* Trạng thái tab đang được kích hoạt tích cực */
+.admin-menu-list .nav-link.active {
+    background-color: #0d6efd !important; /* Màu xanh chủ đạo thương hiệu */
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+/* Khối profile admin dưới đáy taskbar */
+.avatar-sm {
+    width: 32px;
+    height: 32px;
+}

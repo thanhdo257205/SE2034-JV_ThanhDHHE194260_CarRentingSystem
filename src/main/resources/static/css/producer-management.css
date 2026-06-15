@@ -1,0 +1,57 @@
+/* Custom CSS cho phân khu quản lý nhà sản xuất ô tô độc lập */
+
+.producer-management-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- ĐỊNH HÌNH KIỂU DÁNG BẢNG CRUD --- */
+.producer-data-table thead th {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 12px 12px;
+    background-color: #f8f9fa;
+    color: #475569;
+}
+
+.producer-data-table tbody td {
+    padding: 14px 12px;
+    vertical-align: middle;
+}
+
+/* Định dạng kích thước font bổ trợ */
+.text-xs { font-size: 0.75rem; }
+.text-sm { font-size: 0.875rem; }
+.font-medium { font-weight: 600; font-size: 0.85rem; color: #334155; }
+
+/* Nút Action siêu nhỏ */
+.btn-xs {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    border-radius: 4px;
+}
+
+/* --- CẤU TRÚC FORM ĐIỀU KHIỂN TRONG MODAL --- */
+.form-control, .form-select {
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.12);
+}
+
+/* Định dạng thanh phân trang */
+.pagination .page-item .page-link {
+    color: #4a5568;
+    border: 1px solid #e2e8f0;
+    margin: 0 2px;
+    border-radius: 4px;
+}
+.pagination .page-item.active .page-link {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: #ffffff;
+}

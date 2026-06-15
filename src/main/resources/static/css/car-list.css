@@ -1,0 +1,84 @@
+
+.car-list-wrapper {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- BỘ LỌC (FILTER SIDEBAR) --- */
+.filter-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+}
+
+.sticky-filter {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 90px; /* Giữ khoảng cách khi cuộn chuột nếu phía trên có Navbar */
+    z-index: 10;
+}
+
+.font-medium {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #4a5568;
+}
+
+.btn-apply-filter {
+    border-radius: 6px;
+    background-color: #0d6efd;
+    transition: all 0.2s ease;
+}
+
+.btn-apply-filter:hover {
+    background-color: #0b5ed7;
+    transform: translateY(-1px);
+}
+
+/* --- CAR LIST GRID & CAR CARD --- */
+.car-item-card {
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: #ffffff;
+}
+
+.car-item-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06) !important;
+}
+
+.car-card-img {
+    height: 160px;
+    width: 100%;
+}
+
+.text-xs {
+    font-size: 0.75rem;
+}
+
+.fw-extrabold {
+    font-weight: 800;
+}
+
+.text-truncate-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.car-rented-disabled .car-card-img {
+    filter: grayscale(40%);
+    opacity: 0.8;
+}
+
+.pagination .page-item .page-link {
+    color: #4a5568;
+    border: 1px solid #e2e8f0;
+    margin: 0 2px;
+    border-radius: 4px;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: #ffffff;
+}

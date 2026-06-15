@@ -1,0 +1,16 @@
+.fu-footer {
+    background-color: #0f172a !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.fu-footer p {
+    font-size: 0.9rem;
+}
+
+.fu-footer .tracking-wider {
+    letter-spacing: 0.05em;
+}
+
+.fu-footer .opacity-75 {
+    opacity: 0.75;
+}

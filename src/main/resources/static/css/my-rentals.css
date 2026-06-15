@@ -1,0 +1,76 @@
+/* Custom Styles cho trang Lịch sử thuê xe */
+
+.my-rentals-wrapper {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- BANNER THẺ DANH SÁCH (LIST CARD) --- */
+.rental-list-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rental-list-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+.rental-car-thumb {
+    height: 100%;
+    min-height: 120px;
+    align-self: stroke;
+}
+
+.text-xs {
+    font-size: 0.75rem;
+}
+
+.fw-extrabold {
+    font-weight: 800;
+}
+
+.border-0-hover {
+    transition: all 0.2s ease;
+}
+.border-0-hover:hover {
+    background-color: #f1f5f9;
+    color: #0f172a !important;
+}
+
+/* Thẻ đơn hàng đã bị hủy, làm giảm sắc độ để phân cấp thị giác */
+.opaque-card {
+    opacity: 0.65;
+}
+.opaque-card .rental-car-thumb {
+    filter: grayscale(100%);
+}
+
+/* Tiện ích thu nhỏ kích thước nút */
+.btn-xs {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    border-radius: 6px;
+}
+
+/* Kiểu con trỏ cho ngôi sao trong modal */
+.cursor-pointer {
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+.cursor-pointer:hover {
+    transform: scale(1.15);
+}
+
+.font-medium {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #4a5568;
+}
+
+/* Responsive tinh chỉnh đường kẻ ngăn cách giữa những hàng dọc */
+@media (min-width: 768px) {
+    .border-end-md {
+        border-right: 1px solid #dee2e6 !important;
+    }
+}

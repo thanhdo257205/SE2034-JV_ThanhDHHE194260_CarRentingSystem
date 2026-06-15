@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/profile.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<!-- Trang này cấu trúc như một Component độc lập, không chứa Header/Footer -->
+<div class="container my-4 profile-wrapper">
+
+    <!-- Tiêu đề trang & Điều hướng nội bộ -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-1">
+                    <li class="breadcrumb-item"><a href="home.html" class="text-decoration-none">Trang chủ</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Tài khoản cá nhân</li>
+                </ol>
+            </nav>
+            <h2 class="fw-bold text-dark d-flex align-items-center">
+                <i class="fa-solid fa-user-gear text-primary me-2"></i> Cài Đặt Tài Khoản
+            </h2>
+            <p class="text-muted small mb-0">Quản lý thông tin bảo mật, thông tin cá nhân và thông tin liên hệ của bạn.</p>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- BÊN TRÁI: THANH THÀNH VIÊN & DIỀU HƯỚNG TAB (SIDEBAR) -->
+        <div class="col-lg-4 col-xl-3">
+            <div class="card border-0 shadow-sm p-4 text-center mb-4">
+                <!-- Ảnh đại diện / Avatar mặc định -->
+                <div class="profile-avatar-box mx-auto bg-primary-subtle text-primary rounded-circle d-flex align-items-center justify-content-center mb-3">
+                    <i class="fa-solid fa-user fa-3x"></i>
+                </div>
+                <h5 class="fw-bold text-dark mb-1">Nguyễn Văn A</h5>
+                <p class="text-muted text-xs mb-3">Thành viên từ: 15/01/2026</p>
+                <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3 py-1.5 mx-auto text-xs">
+                    <i class="fa-solid fa-shield me-1"></i> Tài khoản đã xác minh
+                </span>
+            </div>
+
+            <!-- Menu Tab Điều Hướng bên trái -->
+            <div class="list-group shadow-sm border-0 profile-menu-list">
+                <button class="list-group-item list-group-item-action active border-0 d-flex align-items-center py-3" data-bs-toggle="list" data-bs-target="#personal-info">
+                    <i class="fa-regular fa-id-card me-2 fs-5"></i> Thông tin cá nhân
+                </button>
+                <button class="list-group-item list-group-item-action border-0 d-flex align-items-center py-3" data-bs-toggle="list" data-bs-target="#security-settings">
+                    <i class="fa-solid fa-lock-open me-2 fs-5"></i> Mật khẩu & Bảo mật
+                </button>
+            </div>
+        </div>
+
+        <!-- BÊN PHẢI: NỘI DUNG CHI TIẾT THEO TAB -->
+        <div class="col-lg-8 col-xl-9">
+            <div class="tab-content">
+
+                <!-- TAB 1: THÔNG TIN CÁ NHÂN -->
+                <div class="tab-pane fade show active" id="personal-info">
+                    <div class="card border-0 shadow-sm p-4">
+                        <h5 class="fw-bold text-dark border-bottom pb-2 mb-4">
+                            <i class="fa-regular fa-user me-2 text-primary"></i>Cập nhật hồ sơ
+                        </h5>
+
+                        <!-- Form liên kết trực tiếp với thực thể User/Account DB -->
+                        <form action="#" method="POST">
+                            <div class="row g-3">
+                                <!-- Họ và tên -->
+                                <div class="col-md-6">
+                                    <label class="form-label font-medium">Họ và tên</label>
+                                    <input type="text" class="form-control" value="Nguyễn Văn A" required>
+                                </div>
+                                <!-- Địa chỉ Email (Thường đặt disabled vì là Username đăng nhập) -->
+                                <div class="col-md-6">
+                                    <label class="form-label font-medium">Địa chỉ Email</label>
+                                    <input type="email" class="form-control bg-light text-muted" value="anv@fpt.edu.vn" disabled>
+                                    <div class="form-text text-xs">Email đăng nhập không thể thay đổi.</div>
+                                </div>
+                                <!-- Số điện thoại -->
+                                <div class="col-md-6">
+                                    <label class="form-label font-medium">Số điện thoại</label>
+                                    <input type="tel" class="form-control" value="0987654321" required>
+                                </div>
+                                <!-- Số CCCD / CMND -->
+                                <div class="col-md-6">
+                                    <label class="form-label font-medium">Số CCCD / Hộ chiếu</label>
+                                    <input type="text" class="form-control" value="001203004567" required>
+                                </div>
+                                <!-- Địa chỉ thường trú -->
+                                <div class="col-12">
+                                    <label class="form-label font-medium">Địa chỉ hiện tại</label>
+                                    <input type="text" class="form-control" value="Khu công nghệ cao Hòa Lạc, Thạch Thất, Hà Nội">
+                                </div>
+                            </div>
+
+                            <!-- Nút Lưu thay đổi -->
+                            <div class="mt-4 border-top pt-3 text-end">
+                                <button type="submit" class="btn btn-primary fw-bold px-4 btn-save-profile">
+                                    LƯU THAY ĐỔI
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- TAB 2: ĐỔI MẬT KHẨU & BẢO MẬT -->
+                <div class="tab-pane fade" id="security-settings">
+                    <div class="card border-0 shadow-sm p-4">
+                        <h5 class="fw-bold text-dark border-bottom pb-2 mb-4">
+                            <i class="fa-solid fa-shield-halved me-2 text-danger"></i>Đổi mật khẩu
+                        </h5>
+
+                        <form action="#" method="POST">
+                            <div class="row g-3">
+                                <!-- Mật khẩu hiện tại -->
+                                <div class="col-12 col-md-8">
+                                    <label class="form-label font-medium">Mật khẩu hiện tại</label>
+                                    <input type="password" class="form-control" placeholder="••••••••" required>
+                                </div>
+                                <!-- Mật khẩu mới -->
+                                <div class="col-12 col-md-8">
+                                    <label class="form-label font-medium">Mật khẩu mới</label>
+                                    <input type="password" class="form-control" placeholder="Tối thiểu 6 ký tự" required>
+                                </div>
+                                <!-- Xác nhận mật khẩu mới -->
+                                <div class="col-12 col-md-8">
+                                    <label class="form-label font-medium">Xác nhận mật khẩu mới</label>
+                                    <input type="password" class="form-control" placeholder="Nhập lại mật khẩu mới" required>
+                                </div>
+                            </div>
+
+                            <!-- Nút cập nhật mật khẩu -->
+                            <div class="mt-4 border-top pt-3 text-end">
+                                <button type="submit" class="btn btn-danger fw-bold px-4 btn-update-password">
+                                    CẬP NHẬT MẬT KHẨU
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
