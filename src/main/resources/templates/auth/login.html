@@ -22,26 +22,22 @@
                 <p class="text-muted small">Hệ thống thuê xe trực tuyến hàng đầu</p>
             </div>
 
-            <form action="#" method="POST">
+            <form th:action="@{/do-login}" method="POST">
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" required>
-                    <label for="floatingEmail"><i class="fa-regular fa-envelope me-2"></i>Địa chỉ Email</label>
+                    <input type="email" class="form-control" name="username" id="floatingEmail" placeholder="Nhập địa chỉ email hoặc tên đăng nhập" required>
+                    <label for="floatingEmail"><i class="fa-regular fa-envelope me-2"></i>Địa chỉ Email hoặc tên đăng nhập</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+                    <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Mật khẩu" required>
                     <label for="floatingPassword"><i class="fa-solid fa-lock me-2"></i>Mật khẩu</label>
                 </div>
 
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="rememberMe">
-                        <label class="form-check-input-label small text-secondary" for="rememberMe">
-                            Ghi nhớ đăng nhập
-                        </label>
-                    </div>
                     <a href="forgot-password.html" class="small text-primary text-decoration-none fw-semibold">Quên mật khẩu?</a>
                 </div>
+
+                <div class="d-block invalid-feedback" th:if="${error != null}" th:text="${error}"></div>
 
                 <button class="btn btn-primary w-100 py-2.5 mb-3 fw-bold btn-login" type="submit">
                     ĐĂNG NHẬP
@@ -50,10 +46,9 @@
 
             <div class="text-center mt-4">
                 <p class="small text-muted mb-0">Chưa có tài khoản?
-                    <a href="register.html" class="text-primary text-decoration-none fw-bold">Đăng ký ngay</a>
+                    <a th:href="@{/register}" class="text-primary text-decoration-none fw-bold">Đăng ký ngay</a>
                 </p>
             </div>
-
         </div>
     </div>
 </div>

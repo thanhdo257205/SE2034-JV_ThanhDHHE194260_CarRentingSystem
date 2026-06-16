@@ -24,6 +24,10 @@ public class Account {
 
     @Column(name = "Role", columnDefinition = "Nvarchar(50)", nullable = false)
     @NotNull(message = "Role is required")
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    @OneToOne(mappedBy = "account")
+    private Customer customer;
 
 }

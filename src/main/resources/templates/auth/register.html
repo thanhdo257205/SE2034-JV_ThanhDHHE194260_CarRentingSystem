@@ -19,13 +19,16 @@
                 <p class="text-muted small">Vui lòng điền chính xác thông tin để thực hiện thuê xe</p>
             </div>
 
-            <form action="#" method="POST">
+            <form th:action="@{/customer/register}" method="POST" th:object="${register}">
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label class="form-label font-semibold">Họ và tên</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fa-regular fa-user"></i></span>
-                            <input type="text" class="form-control" placeholder="Nguyễn Văn A" required>
+                            <input type="text" class="form-control" th:field="*{customerName}"
+                                   placeholder="Nhập tên của bạn" required>
+                            <span class="invalid-feedback d-block" th:if="${#fields.hasErrors('customerName')}"
+                                  th:errors="*{customerName}"></span>
                         </div>
                     </div>
 
@@ -33,7 +36,10 @@
                         <label class="form-label font-semibold">Số điện thoại</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
-                            <input type="tel" class="form-control" placeholder="09xxxxxxxx" required>
+                            <input type="tel" class="form-control" th:field="*{mobile}"
+                                   placeholder="Nhập số điện thoại của bạn" required>
+                            <span class="invalid-feedback d-block" th:if="${#fields.hasErrors('mobile')}"
+                                  th:errors="*{mobile}"></span>
                         </div>
                     </div>
 
@@ -41,7 +47,9 @@
                         <label class="form-label font-semibold">Ngày sinh</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fa-regular fa-calendar"></i></span>
-                            <input type="date" class="form-control" required>
+                            <input type="date" class="form-control" th:field="*{birthday}" required>
+                            <span class="invalid-feedback d-block" th:if="${#fields.hasErrors('birthday')}"
+                                  th:errors="*{birthday}"></span>
                         </div>
                     </div>
 
@@ -49,7 +57,10 @@
                         <label class="form-label font-semibold">Số CCCD / Hộ chiếu</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fa-regular fa-id-card"></i></span>
-                            <input type="text" class="form-control" placeholder="Căn cước công dân" required>
+                            <input type="text" class="form-control" th:field="*{identityCard}"
+                                   placeholder="Căn cước công dân" required>
+                            <span class="invalid-feedback d-block" th:if="${#fields.hasErrors('identityCard')}"
+                                  th:errors="*{identityCard}"></span>
                         </div>
                     </div>
 
@@ -57,7 +68,10 @@
                         <label class="form-label font-semibold">Số bằng lái xe (GPLX)</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fa-solid fa-id-badge"></i></span>
-                            <input type="text" class="form-control" placeholder="Nhập số GPLX" required>
+                            <input type="text" class="form-control" th:field="*{licenceNumber}"
+                                   placeholder="Nhập số GPLX" required>
+                            <span class="invalid-feedback d-block" th:if="${#fields.hasErrors('licenceNumber')}"
+                                  th:errors="*{licenceNumber}"></span>
                         </div>
                     </div>
 
@@ -65,7 +79,9 @@
                         <label class="form-label font-semibold">Ngày cấp GPLX</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fa-solid fa-calendar-day"></i></span>
-                            <input type="date" class="form-control" required>
+                            <input type="date" class="form-control" th:field="*{licenceDate}" required>
+                            <span class="invalid-feedback d-block" th:if="${#fields.hasErrors('licenceDate')}"
+                                  th:errors="*{licenceDate}"></span>
                         </div>
                     </div>
 
@@ -73,7 +89,23 @@
                         <label class="form-label font-semibold">Địa chỉ Email</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fa-regular fa-envelope"></i></span>
-                            <input type="email" class="form-control" placeholder="example@gmail.com" required>
+                            <input type="email" class="form-control" th:field="*{email}"
+                                   placeholder="Nhập email đăng nhập của bạn" required>
+                            <span class="invalid-feedback d-block" th:if="${#fields.hasErrors('email')}"
+                                  th:errors="*{email}"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-12 mb-3">
+                        <label class="form-label font-semibold">Tên đăng nhập</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa-regular fa-envelope"></i></span>
+                            <input type="text" class="form-control" th:field="*{accountName}"
+                                   placeholder="Nhập tên đăng nhập của bạn" required>
+                            <span th:each="err : ${#fields.detailedErrors()}">
+                                <span class="invalid-feedback d-block" th:if="${err.fieldName.equals('accountName')}"
+                                      th:text="${err.message}"></span>
+                            </span>
                         </div>
                     </div>
 
@@ -81,7 +113,10 @@
                         <label class="form-label font-semibold">Mật khẩu</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-                            <input type="password" class="form-control" placeholder="••••••••" required>
+                            <input type="password" class="form-control" th:field="*{password}"
+                                   placeholder="Nhập mật khẩu của bạn" required>
+                            <span class="invalid-feedback d-block" th:if="${#fields.hasErrors('password')}"
+                                  th:errors="*{password}"></span>
                         </div>
                     </div>
 
@@ -89,9 +124,17 @@
                         <label class="form-label font-semibold">Xác nhận mật khẩu</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fa-solid fa-shield-halved"></i></span>
-                            <input type="password" class="form-control" placeholder="••••••••" required>
+                            <input type="password" class="form-control" th:field="*{confirmPassword}"
+                                   placeholder="Xác nhận mật khẩu của bạn" required>
+                            <span th:each="err : ${#fields.detailedErrors()}">
+                                <span class="invalid-feedback d-block"
+                                      th:if="${err.fieldName.equals('confirmPassword')}"
+                                      th:text="${err.message}"></span>
+                            </span>
                         </div>
                     </div>
+                    <span th:each="err : ${#fields.globalErrors()}" class="invalid-feedback d-block" th:text="${err}">
+                    </span>
                 </div>
 
                 <button class="btn btn-success w-100 py-2.5 mb-3 fw-bold btn-register" type="submit">
@@ -101,7 +144,7 @@
 
             <div class="text-center mt-3">
                 <p class="small text-muted mb-0">Đã có tài khoản?
-                    <a href="login.html" class="text-success text-decoration-none fw-bold">Đăng nhập tại đây</a>
+                    <a th:href="@{/login}" class="text-success text-decoration-none fw-bold">Đăng nhập tại đây</a>
                 </p>
             </div>
 

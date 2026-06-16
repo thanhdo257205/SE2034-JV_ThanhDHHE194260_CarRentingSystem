@@ -20,9 +20,10 @@ import java.time.LocalDateTime;
 public class Customer {
     @Id
     @Column(name = "CustomerID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer customerId;
 
-    @Column(name = "CustomerName", nullable = false, length = 100)
+    @Column(name = "CustomerName", columnDefinition = "Nvarchar(100)", nullable = false, length = 100)
     @NotBlank(message = "Customer name is required")
     private String customerName;
 
@@ -56,8 +57,8 @@ public class Customer {
     @NotBlank(message = "Password is required")
     private String password;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "AccountID", nullable = false)
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "AccountID", nullable = false, unique = true)
     @NotNull(message = "Account is required")
     private Account account;
 
