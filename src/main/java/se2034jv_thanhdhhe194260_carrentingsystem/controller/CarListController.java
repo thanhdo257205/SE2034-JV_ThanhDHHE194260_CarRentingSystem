@@ -9,6 +9,6 @@ public class CarListController {
 
     @GetMapping("/cars/list")
     public String listCars(Model model) {
-        return "/customer/car-list";
+        return "/admin/customer-management";
     }
 }

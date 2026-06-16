@@ -1,10 +1,10 @@
-/* Custom CSS chuyên biệt dành riêng cho giao diện quản lý giao dịch thuê xe */
+/* Custom CSS chuyên biệt cho bảng quản lý đơn đặt thuê xe Admin */
 
 .rental-management-container {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* --- BANNER KHU VỰC BẢNG HIỂN THỊ DỮ LIỆU --- */
+/* Kiểu dáng định hình tiêu đề cột Data Table */
 .rental-data-table thead th {
     font-size: 0.75rem;
     font-weight: 700;
@@ -18,21 +18,21 @@
     vertical-align: middle;
 }
 
-/* Định cấu trúc tỷ lệ kích thước chữ viết */
+/* Định nghĩa hệ thống cỡ chữ bổ trợ */
 .text-xxs { font-size: 0.68rem; }
 .text-xs { font-size: 0.75rem; }
 .text-sm { font-size: 0.875rem; }
 .font-medium { font-weight: 600; font-size: 0.85rem; color: #334155; }
-.fw-extrabold { font-weight: 800; }
 
-/* Nút tác vụ mini điều phối */
+/* Nút xử lý nhỏ (Action Button Micro) */
 .btn-xs {
-    padding: 4px 8px;
+    padding: 4px 10px;
     font-size: 0.75rem;
     border-radius: 4px;
+    font-weight: 600;
 }
 
-/* --- ĐỊNH DẠNG COMPONENT Ô NHẬP LIỆU FORM TRONG MODAL --- */
+/* Tùy biến đối tượng Form */
 .form-control, .form-select {
     border-radius: 6px;
     border: 1px solid #cbd5e1;
@@ -45,7 +45,7 @@
     box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.12);
 }
 
-/* Kiểu dáng thanh phân trang dưới bảng */
+/* Định hình phân trang dưới đáy bảng */
 .pagination .page-item .page-link {
     color: #4a5568;
     border: 1px solid #e2e8f0;
