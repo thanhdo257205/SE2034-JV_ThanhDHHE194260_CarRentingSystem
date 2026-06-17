@@ -154,55 +154,89 @@
 
 <div class="modal fade" id="addCarModal" tabindex="-1" aria-labelledby="addCarModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content border-0 shadow">
-            <div class="modal-header bg-light">
-                <h5 class="modal-title fw-bold text-dark" id="addCarModalLabel">Khai Báo Ô Tô Mới Vào Hệ Thống</h5>
+        <div class="modal-content border-0 shadow-lg rounded-3">
+            <div class="modal-header bg-light border-bottom px-4 py-3">
+                <div class="d-flex align-items-center">
+                    <div class="bg-primary-subtle text-primary rounded-circle p-2 me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                        <i class="fa-solid fa-car-side fa-lg"></i>
+                    </div>
+                    <div>
+                        <h5 class="modal-title fw-bold text-dark" id="addCarModalLabel">Thêm Ô Tô Mới</h5>
+                    </div>
+                </div>
                 <button type="button" class="btn-close" data-bs-shadow="none" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="#" method="POST">
+            <form th:action="@{cars/add-car}" method="POST">
                 <div class="modal-body p-4">
                     <div class="row g-3">
                         <div class="col-md-6">
-                            <label class="form-label font-medium">Tên xe ô tô (`CarName`)*</label>
-                            <input type="text" class="form-control" placeholder="Ví dụ: Camry, Mazda 3..." required>
+                            <label class="form-label font-medium text-dark mb-1">Tên xe ô tô (`CarName`) <span class="text-danger">*</span></label>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-text bg-white border-end-0 text-muted"><i class="fa-solid fa-font"></i></span>
+                                <input type="text" class="form-control border-start-0 ps-1" placeholder="Ví dụ: VinFast VF8, Toyota Camry..." required>
+                            </div>
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label font-medium">Nhà sản xuất (`ProducerID`)*</label>
-                            <select class="form-select" required>
-                                <option value="">-- Chọn thương hiệu hãng xe --</option>
-                                <option value="1">VinFast</option>
-                                <option value="2">Toyota</option>
-                                <option value="3">Honda</option>
-                            </select>
+                            <label class="form-label font-medium text-dark mb-1">Nhà sản xuất (`ProducerID`) <span class="text-danger">*</span></label>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-text bg-white border-end-0 text-muted"><i class="fa-solid fa-industry"></i></span>
+                                <select class="form-select border-start-0 ps-1" required>
+                                    <option value="" selected disabled>-- Chọn hãng xe đối tác --</option>
+                                    <option value="1">VinFast (Vietnam)</option>
+                                    <option value="2">Toyota (Japan)</option>
+                                    <option value="3">Honda (Japan)</option>
+                                    <option value="4">Ford (USA)</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="col-sm-4">
-                            <label class="form-label font-medium">Năm sản xuất (`CarModelYear`)*</label>
-                            <input type="number" class="form-control" min="2010" max="2027" placeholder="Ví dụ: 2023" required>
+                            <label class="form-label font-medium text-dark mb-1">Năm sản xuất (`CarModelYear`) <span class="text-danger">*</span></label>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-text bg-white border-end-0 text-muted"><i class="fa-regular fa-calendar-days"></i></span>
+                                <input type="number" class="form-control border-start-0 ps-1" min="2015" max="2027" placeholder="Ví dụ: 2024" required>
+                            </div>
                         </div>
                         <div class="col-sm-4">
-                            <label class="form-label font-medium">Màu sắc (`Color`)*</label>
-                            <input type="text" class="form-control" placeholder="Đỏ, Đen, Trắng..." required>
+                            <label class="form-label font-medium text-dark mb-1">Màu sắc (`Color`) <span class="text-danger">*</span></label>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-text bg-white border-end-0 text-muted"><i class="fa-solid fa-palette"></i></span>
+                                <input type="text" class="form-control border-start-0 ps-1" placeholder="Trắng, Đen, Đỏ..." required>
+                            </div>
                         </div>
                         <div class="col-sm-4">
-                            <label class="form-label font-medium">Số chỗ ngồi (`Capacity`)*</label>
-                            <input type="number" class="form-control" min="2" max="50" placeholder="4, 5, 7..." required>
+                            <label class="form-label font-medium text-dark mb-1">Số chỗ ngồi (`Capacity`) <span class="text-danger">*</span></label>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-text bg-white border-end-0 text-muted"><i class="fa-solid fa-users"></i></span>
+                                <input type="number" class="form-control border-start-0 ps-1" min="2" max="50" placeholder="4, 5, 7..." required>
+                            </div>
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label font-medium">Giá thuê theo ngày (VNĐ / `RentPrice`)*</label>
-                            <input type="number" class="form-control" placeholder="Nhập số tiền đơn vị VNĐ" required>
+                            <label class="form-label font-medium text-dark mb-1">Giá thuê theo ngày (`RentPrice`) <span class="text-danger">*</span></label>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-text bg-white border-end-0 text-muted"><i class="fa-solid fa-money-bill-wave text-success"></i></span>
+                                <input type="number" class="form-control border-start-0 ps-1 fw-bold text-primary" min="100000" step="50000" placeholder="Nhập số tiền..." required>
+                                <span class="input-group-text bg-light text-muted fw-semibold" style="font-size: 0.75rem;">VNĐ / Ngày</span>
+                            </div>
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label font-medium">Trạng thái xe (`Status`)*</label>
-                            <select class="form-select" required>
-                                <option value="Available">Sẵn sàng phục vụ (Available)</option>
-                                <option value="Rented">Đang được thuê (Rented)</option>
-                            </select>
+                            <label class="form-label font-medium text-dark mb-1">Trạng thái ban đầu (`Status`) <span class="text-danger">*</span></label>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-text bg-white border-end-0 text-muted"><i class="fa-solid fa-toggle-on text-success"></i></span>
+                                <select class="form-select border-start-0 ps-1 fw-semibold text-success" required>
+                                    <option value="Available" class="text-success fw-semibold">Sẵn sàng phục vụ (Available)</option>
+                                    <option value="Rented" class="text-danger">Đang được thuê (Rented)</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer bg-light border-top-0">
-                    <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Hủy bỏ</button>
-                    <button type="submit" class="btn btn-primary btn-sm fw-bold px-3">Xác nhận lưu</button>
+                <div class="modal-footer bg-light border-top px-4 py-3">
+                    <button type="button" class="btn btn-outline-secondary btn-sm px-3 fw-semibold" data-bs-dismiss="modal">
+                        <i class="fa-solid fa-xmark me-1"></i> Hủy bỏ
+                    </button>
+                    <button type="submit" class="btn btn-primary btn-sm px-4 fw-bold shadow-sm">
+                        <i class="fa-solid fa-floppy-disk me-1"></i> Xác nhận lưu
+                    </button>
                 </div>
             </form>
         </div>
@@ -211,60 +245,92 @@
 
 <div class="modal fade" id="editCarModal" tabindex="-1" aria-labelledby="editCarModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content border-0 shadow">
-            <div class="modal-header bg-light">
-                <h5 class="modal-title fw-bold text-dark" id="editCarModalLabel">Cập Nhật Thông Tin Ô Tô</h5>
+        <div class="modal-content border-0 shadow-lg rounded-3">
+            <div class="modal-header bg-light border-bottom px-4 py-3">
+                <div class="d-flex align-items-center">
+                    <div class="bg-warning-subtle text-warning rounded-circle p-2 me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                        <i class="fa-regular fa-pen-to-square fa-lg"></i>
+                    </div>
+                    <div>
+                        <h5 class="modal-title fw-bold text-dark" id="editCarModalLabel">Cập Nhật Thông Tin Ô Tô</h5>
+                        <p class="text-muted small mb-0 font-monospace" style="font-size: 0.75rem;">Chỉnh sửa dữ liệu bản ghi `Car` đang chọn</p>
+                    </div>
+                </div>
                 <button type="button" class="btn-close" data-bs-shadow="none" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="#" method="POST">
                 <div class="modal-body p-4">
                     <div class="row g-3">
                         <div class="col-md-6">
-                            <label class="form-label font-medium">Tên xe ô tô (`CarName`)*</label>
-                            <input type="text" class="form-control" value="VinFast Lux A2.0" required>
+                            <label class="form-label font-medium text-dark mb-1">Tên xe ô tô (`CarName`) <span class="text-danger">*</span></label>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-text bg-white border-end-0 text-muted"><i class="fa-solid fa-font"></i></span>
+                                <input type="text" class="form-control border-start-0 ps-1" value="VinFast Lux A2.0" required>
+                            </div>
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label font-medium">Nhà sản xuất (`ProducerID`)*</label>
-                            <select class="form-select" required>
-                                <option value="1" selected>VinFast</option>
-                                <option value="2">Toyota</option>
-                                <option value="3">Honda</option>
-                            </select>
+                            <label class="form-label font-medium text-dark mb-1">Nhà sản xuất (`ProducerID`) <span class="text-danger">*</span></label>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-text bg-white border-end-0 text-muted"><i class="fa-solid fa-industry"></i></span>
+                                <select class="form-select border-start-0 ps-1" required>
+                                    <option value="1" selected>VinFast</option>
+                                    <option value="2">Toyota</option>
+                                    <option value="3">Honda</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="col-sm-4">
-                            <label class="form-label font-medium">Năm sản xuất (`CarModelYear`)*</label>
-                            <input type="number" class="form-control" value="2023" required>
+                            <label class="form-label font-medium text-dark mb-1">Năm sản xuất (`CarModelYear`) <span class="text-danger">*</span></label>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-text bg-white border-end-0 text-muted"><i class="fa-regular fa-calendar-days"></i></span>
+                                <input type="number" class="form-control border-start-0 ps-1" value="2023" required>
+                            </div>
                         </div>
                         <div class="col-sm-4">
-                            <label class="form-label font-medium">Màu sắc (`Color`)*</label>
-                            <input type="text" class="form-control" value="Đen huyền bí" required>
+                            <label class="form-label font-medium text-dark mb-1">Màu sắc (`Color`) <span class="text-danger">*</span></label>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-text bg-white border-end-0 text-muted"><i class="fa-solid fa-palette"></i></span>
+                                <input type="text" class="form-control border-start-0 ps-1" value="Đen huyền bí" required>
+                            </div>
                         </div>
                         <div class="col-sm-4">
-                            <label class="form-label font-medium">Số chỗ ngồi (`Capacity`)*</label>
-                            <input type="number" class="form-control" value="5" required>
+                            <label class="form-label font-medium text-dark mb-1">Số chỗ ngồi (`Capacity`) <span class="text-danger">*</span></label>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-text bg-white border-end-0 text-muted"><i class="fa-solid fa-users"></i></span>
+                                <input type="number" class="form-control border-start-0 ps-1" value="5" required>
+                            </div>
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label font-medium">Giá thuê theo ngày (VNĐ)*</label>
-                            <input type="number" class="form-control" value="1200000" required>
+                            <label class="form-label font-medium text-dark mb-1">Giá thuê theo ngày (`RentPrice`) <span class="text-danger">*</span></label>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-text bg-white border-end-0 text-muted"><i class="fa-solid fa-money-bill-wave text-success"></i></span>
+                                <input type="number" class="form-control border-start-0 ps-1 fw-bold text-primary" value="1200000" required>
+                                <span class="input-group-text bg-light text-muted fw-semibold" style="font-size: 0.75rem;">VNĐ / Ngày</span>
+                            </div>
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label font-medium">Trạng thái xe (`Status`)*</label>
-                            <select class="form-select" required>
-                                <option value="Available" selected>Sẵn sàng phục vụ (Available)</option>
-                                <option value="Rented">Đang được thuê (Rented)</option>
-                            </select>
+                            <label class="form-label font-medium text-dark mb-1">Trạng thái xe (`Status`) <span class="text-danger">*</span></label>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-text bg-white border-end-0 text-muted"><i class="fa-solid fa-toggle-on text-success"></i></span>
+                                <select class="form-select border-start-0 ps-1 fw-semibold text-success" required>
+                                    <option value="Available" selected class="text-success fw-semibold">Sẵn sàng phục vụ (Available)</option>
+                                    <option value="Rented" class="text-danger">Đang được thuê (Rented)</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer bg-light border-top-0">
-                    <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Hủy</button>
-                    <button type="submit" class="btn btn-primary btn-sm fw-bold px-3">Cập nhật thay đổi</button>
+                <div class="modal-footer bg-light border-top px-4 py-3">
+                    <button type="button" class="btn btn-outline-secondary btn-sm px-3 fw-semibold" data-bs-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-primary btn-sm px-4 fw-bold shadow-sm">
+                        <i class="fa-solid fa-floppy-disk me-1"></i> Cập nhật thay đổi
+                    </button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 <footer th:replace="~{fragments/footer.html :: footer}"></footer>
 </html>
